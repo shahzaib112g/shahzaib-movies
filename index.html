@@ -1,45 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahzaib Movies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="ss/faviconpng.png" type="image/x-icon">
+
+</head>
 <body>
     <header>
         <div>
-            <h1>🎮 SHAHZAIB MOVIES</h1>
+            <h1>🎬 SHAHZAIB MOVIES</h1>
             <input type="text" placeholder="Search Movies..." id="searchBar">
         </div>
     </header> <hr> <br>
-    <main id="movie-container">
-        <!-- Movies from Google Sheet will load here -->
+    <main>
+        <div class="movie-grid">
+            <img src="ss/Screenshot 2025-07-13 154702.png" width="150px" alt="Error">
+            <h3>Maalik (2025) Hindi Movie V2 HDTS || 480p [500MB] || 720p [1.3GB] || 1080p [2.9GB]</h3>
+            <a href="movie1.html" target="_blank">Watch Now/ Download</a>
+
+        </div>
+          <div class="movie-grid">
+            <img src="5a/main.png" width="150px" alt="Error">
+            <h3>Housefull 5A (2025) Hindi Movie WEB-DL || 480p [500MB] || 720p [1.3GB] || 1080p [3GB]</h3>
+            <a href="movie2.html" target="_blank">Watch Now/ Download</a>
+        </div>
+         <div class="movie-grid">
+            <img src="5a/main.png" width="150px" alt="Error">
+            <h3>Housefull 5B (2025) Hindi Movie WEB-DL || 480p [500MB] || 720p [1.3GB] || 1080p [3GB]</h3>
+            <a href="movie3.html" target="_blank">Watch Now/ Download</a>
+        </div>
+
     </main>
-
-    <script>
-        const sheetID = "1uXKvO0BPCcJ-EGmlbYgu3hzrWhwOIzPEa2hdV3kIT8M";
-        const sheetName = "Shahzaib Movies CMS";
-        const url = `https://opensheet.elk.sh/${sheetID}/${sheetName}`;
-
-        const container = document.getElementById("movie-container");
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                data.forEach(movie => {
-                    const div = document.createElement("div");
-                    div.className = "movie-grid";
-                    div.innerHTML = `
-                        <img src="${movie.image}" width="150px" alt="${movie.title}">
-                        <h3>${movie.title}</h3>
-                        <a href="${movie.link}" target="_blank">Watch Now/Download</a>
-                    `;
-                    container.appendChild(div);
-                });
-            });
-
-        // Optional: Search filter
-        document.getElementById("searchBar").addEventListener("keyup", function() {
-            let filter = this.value.toLowerCase();
-            let movies = document.querySelectorAll(".movie-grid");
-            movies.forEach(m => {
-                const text = m.innerText.toLowerCase();
-                m.style.display = text.includes(filter) ? "block" : "none";
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>
